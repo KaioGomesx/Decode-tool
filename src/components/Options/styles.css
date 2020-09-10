@@ -1,0 +1,19 @@
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-family: "Roboto Mono", monospace;
+  margin: 2%;
+  border: 4px red;
+  word-break: keep-all;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.options {
+  width: 100%;
+  text-align: right;
+  padding-right: 3%;
+}

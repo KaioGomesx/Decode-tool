@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 6%;
+}
+
+.separator {
+  width: 8%;
+}
+
+.boxTitle {
+  background-color: #3b3b3b;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  align-self: left;
+  padding: 2px;
+  padding-left: 10px;
+}
+
+.container textarea {
+  border-radius: 0px 0px 10px 10px;
+  outline: none;
+  resize: none;
+  background-color: #a7a7a7;
+}
+
+.dropdown input {
+  outline: none;
+  resize: none;
+  border: none;
+  overflow: hidden;
+  padding-left: 40px;
+  height: 28px;
+  color: white;
+  background-color: #3c3b3b;
+  border-radius: 10px;
+}
+
+.select {
+  margin-right: 26px;
+  border-radius: 10px;
+  height: 30px;
+  background-color: #3c3b3b;
+  color: white;
+  padding-left: 8px;
+  border: none;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5%;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.key {
+  background-color: #2e2c2c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 36px;
+  height: 30px;
+  position: absolute;
+}
