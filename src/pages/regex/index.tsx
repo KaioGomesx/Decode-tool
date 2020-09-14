@@ -5,7 +5,7 @@ function Regex() {
   return (
     <div>
       <Header />
-      <h1>Fon</h1>
+      <h1>damn</h1>
     </div>
   );
 }
