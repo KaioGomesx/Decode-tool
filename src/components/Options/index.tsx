@@ -14,6 +14,7 @@ function Options() {
       {pathname === "/exif" ? "" : <a href="exif">EXIF</a>}
       {pathname === "/rot-n" ? "" : <a href="rot-n">ROT N</a>}
       {pathname === "/regex" ? "" : <a href="regex">REGEX</a>}
+      {pathname === "/about" ? "" : <a href="about">ABOUT</a>}
     </div>
   );
 }

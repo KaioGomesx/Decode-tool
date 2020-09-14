@@ -1,0 +1,31 @@
+.about .body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about .container {
+  font-family: "Roboto Mono Medium", monospace;
+  font-size: 20px;
+  padding: 0px;
+  display: flex;
+  background-color: #3f3f3f;
+  border-radius: 10px;
+  width: 40%;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  color: white;
+  flex-direction: column;
+  padding-bottom: 5%;
+}
+
+.about span {
+  padding: 3px;
+}
+
+.about p {
+  margin-bottom: 50px;
+  margin-top: 25px;
+}

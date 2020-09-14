@@ -5,6 +5,7 @@ import Main from "./pages/main";
 import Exif from "./pages/exif";
 import Rot from "./pages/rot";
 import Regex from "./pages/regex";
+import About from "./pages/about";
 
 import "./globalStyle.css";
 
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/exif" component={Exif} />
         <Route exact path="/rot-n" component={Rot} />
         <Route exact path="/regex" component={Regex} />
+        <Route exact path="/about" component={About} />
         <Redirect from="*" to="/decoders" />
       </Switch>
     </BrowserRouter>
