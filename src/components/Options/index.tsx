@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 
 import "./styles.css";
 
 function Options() {
   let { pathname } = useLocation();
-
-  useEffect(() => console.log(pathname), [pathname]);
 
   return (
     <div className="options">
