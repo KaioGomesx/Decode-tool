@@ -18,6 +18,7 @@ function Rot() {
       );
     });
   }
+
   return (
     <div className="rot">
       <Header />
