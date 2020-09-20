@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Header from "../../components/Header";
 
@@ -10,8 +10,14 @@ function Rot() {
   const [inputValue, setInputValue] = useState("");
   const [rotResult, setRotResult] = useState<string[]>([]);
 
-  useEffect(() => {});
-
+  function buildRootsSpans(rotArray: string[]) {
+    return rotArray.map((item, ind) => {
+      const index = ind + 1;
+      return (
+        <span key={ind} className="rots">{` ROT ${index} = ${item}\n`}</span>
+      );
+    });
+  }
   return (
     <div className="rot">
       <Header />
@@ -29,18 +35,7 @@ function Rot() {
               placeholder="Text"
             />
           </div>
-          <div className="rotResult">
-            {rotResult.map((item, ind) => {
-              const index = ind + 1;
-
-              return (
-                <span
-                  key={ind}
-                  className="rots"
-                >{`ROT ${index} = ${item}\n`}</span>
-              );
-            })}
-          </div>
+          <div className="rotResult">{buildRootsSpans(rotResult)}</div>
         </div>
       </div>
     </div>

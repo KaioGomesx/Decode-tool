@@ -36,6 +36,7 @@ function getAllRots(str: string) {
   ];
 
   const rootsArray = roots.map((i) => rotN(str, i));
+
   return rootsArray;
 }
 
