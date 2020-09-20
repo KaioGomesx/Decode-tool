@@ -65,20 +65,16 @@
 
 .rot .rotResult {
   display: flex;
+  flex-flow: column;
   flex-wrap: wrap;
-  overflow: auto;
   border-radius: 10px;
   background-color: #3f3f3f;
-  height: 50vh;
+  height: 40vh;
   font-family: monospace;
-  width: 60vw;
+  width: 50vw;
   color: white;
   white-space: pre;
-  hyphens: auto;
-  word-wrap: break-word;
-  display: block;
-  word-break: break-all;
-  overflow-wrap: wrap;
+  padding: 30px;
 }
 
 .rot .inputBox {
@@ -100,4 +96,8 @@
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #555;
+}
+
+.rot .rots {
+  font-size: 20px;
 }
