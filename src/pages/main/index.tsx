@@ -4,6 +4,8 @@ import Header from "../../components/Header";
 
 import "./styles.css";
 
+import text2binary from "../../decoders/binary";
+
 type Cypher = {
   name: string;
   key: boolean;
@@ -26,6 +28,7 @@ function Main() {
 
   const [cypher, setCypher] = useState<Cypher>(cyphers[0]);
   const [key, setKey] = useState("");
+  const [encodeResult, setEncodeResult] = useState("");
 
   return (
     <div className="App">
@@ -33,7 +36,14 @@ function Main() {
       <div className="container">
         <div className="box1">
           <div className="boxTitle">Text</div>
-          <textarea placeholder="Digite o texto aqui" cols={70} rows={18} />
+          <textarea
+            placeholder="Digite o texto aqui"
+            cols={70}
+            rows={18}
+            onChange={({ target }) =>
+              setEncodeResult(text2binary(target.value))
+            }
+          />
           <div className="dropdown">
             <select
               className="select"
@@ -74,7 +84,13 @@ function Main() {
         <div className="separator" />
         <div className="box2">
           <div className="boxTitle">{cypher.name}</div>
-          <textarea name="fon" id="fon" cols={70} rows={18}></textarea>
+          <textarea
+            className="encodeResult"
+            cols={70}
+            rows={18}
+            disabled
+            value={encodeResult}
+          />
         </div>
       </div>
     </div>
