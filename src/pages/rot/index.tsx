@@ -6,18 +6,18 @@ import "./styles.css";
 
 import rotN from "../../decoders/rot";
 
+function buildRootsSpans(rotArray: string[]) {
+  return rotArray.map((item, ind) => {
+    const index = ind + 1;
+    return (
+      <span key={ind} className="rots">{` ROT ${index} = ${item}\n`}</span>
+    );
+  });
+}
+
 function Rot() {
   const [inputValue, setInputValue] = useState("");
   const [rotResult, setRotResult] = useState<string[]>([]);
-
-  function buildRootsSpans(rotArray: string[]) {
-    return rotArray.map((item, ind) => {
-      const index = ind + 1;
-      return (
-        <span key={ind} className="rots">{` ROT ${index} = ${item}\n`}</span>
-      );
-    });
-  }
 
   return (
     <div className="rot">
