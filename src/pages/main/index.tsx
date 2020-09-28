@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Header from "../../components/Header";
+import InputKey from "../../components/InputKey";
 
 import "./styles.css";
 
@@ -11,24 +12,39 @@ type Cypher = {
   key: boolean;
 };
 
-function Main() {
-  const cyphers = [
-    { name: "Binary", key: false },
-    { name: "Reverse", key: false },
-    { name: "Vigenere", key: true },
-    { name: "Atbash", key: false },
-    { name: "Octal", key: false },
-    { name: "Hex", key: false },
-    { name: "Decimal", key: false },
-    { name: "Base64", key: false },
-    { name: "Morse", key: false },
-    { name: "Beaufort Cipher", key: true },
-    { name: "Rail Fence Cipher", key: true },
-  ];
+const cyphers = [
+  { name: "Binary", key: false },
+  { name: "Reverse", key: false },
+  { name: "Vigenere", key: true },
+  { name: "Atbash", key: false },
+  { name: "Octal", key: false },
+  { name: "Hex", key: false },
+  { name: "Decimal", key: false },
+  { name: "Base64", key: false },
+  { name: "Morse", key: false },
+  { name: "Beaufort Cipher", key: true },
+  { name: "Rail Fence Cipher", key: true },
+];
 
+function getCypherResult(cypher: Cypher, text: string) {
+  switch (cypher.name) {
+    case "Binary":
+      return text2binary(text);
+    default:
+      return "";
+  }
+}
+
+function Main() {
   const [cypher, setCypher] = useState<Cypher>(cyphers[0]);
   const [key, setKey] = useState("");
   const [encodeResult, setEncodeResult] = useState("");
+  const [inputValue, setInputValue] = useState("");
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setEncodeResult(getCypherResult(cypher, inputValue)), [
+    cypher,
+  ]);
 
   return (
     <div className="App">
@@ -40,45 +56,31 @@ function Main() {
             placeholder="Digite o texto aqui"
             cols={70}
             rows={18}
-            onChange={({ target }) =>
-              setEncodeResult(text2binary(target.value))
-            }
+            onChange={({ target }) => {
+              setInputValue(target.value);
+              setEncodeResult(getCypherResult(cypher, target.value));
+            }}
+            value={inputValue}
           />
           <div className="dropdown">
             <select
               className="select"
               name="Cyphers"
               value={cypher.name}
-              onChange={(event) =>
+              onChange={({ target }) => {
                 setCypher(
-                  cyphers.find((item) => item.name === event.target.value) || {
+                  cyphers.find((item) => item.name === target.value) || {
                     name: "",
                     key: false,
                   }
-                )
-              }
+                );
+              }}
             >
               {cyphers.map((item) => (
                 <option value={item.name}>{item.name}</option>
               ))}
             </select>
-            {cypher.key ? (
-              <div className="inputDiv">
-                <div className="key">
-                  <span role="img" aria-label="sheep">
-                    🔑
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={({ target }) => setKey(target.value)}
-                  placeholder="Coloque a chave"
-                />
-              </div>
-            ) : (
-              ""
-            )}
+            {cypher.key ? <InputKey key={key} setKey={setKey} /> : ""}
           </div>
         </div>
         <div className="separator" />

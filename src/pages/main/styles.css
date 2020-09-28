@@ -53,22 +53,6 @@
   margin-top: 1.5%;
 }
 
-.inputDiv {
-  display: flex;
-  flex-direction: row;
-}
-
-.key {
-  background-color: #2e2c2c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  width: 36px;
-  height: 30px;
-  position: absolute;
-}
-
 .encodeResult {
   color: black;
 }
