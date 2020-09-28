@@ -6,6 +6,8 @@ import InputKey from "../../components/InputKey";
 import "./styles.css";
 
 import text2binary from "../../decoders/binary";
+import reverseString from "../../decoders/reverse";
+import vigenere2text from "../../decoders/vigenere";
 
 type Cypher = {
   name: string;
@@ -26,10 +28,14 @@ const cyphers = [
   { name: "Rail Fence Cipher", key: true },
 ];
 
-function getCypherResult(cypher: Cypher, text: string) {
+function getCypherResult(cypher: Cypher, text: string, key?: string) {
   switch (cypher.name) {
     case "Binary":
       return text2binary(text);
+    case "Reverse":
+      return reverseString(text);
+    case "Vigenere":
+      return vigenere2text(text, key || "");
     default:
       return "";
   }
@@ -42,8 +48,10 @@ function Main() {
   const [inputValue, setInputValue] = useState("");
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => setEncodeResult(getCypherResult(cypher, inputValue)), [
+  useEffect(() => setEncodeResult(getCypherResult(cypher, inputValue, key)), [
+    inputValue,
     cypher,
+    key,
   ]);
 
   return (
@@ -77,7 +85,9 @@ function Main() {
               }}
             >
               {cyphers.map((item) => (
-                <option value={item.name}>{item.name}</option>
+                <option value={item.name} key={item.name}>
+                  {item.name}
+                </option>
               ))}
             </select>
             {cypher.key ? <InputKey value={key} onInputChange={setKey} /> : ""}
