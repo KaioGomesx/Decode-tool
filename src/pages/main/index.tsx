@@ -80,7 +80,7 @@ function Main() {
                 <option value={item.name}>{item.name}</option>
               ))}
             </select>
-            {cypher.key ? <InputKey key={key} setKey={setKey} /> : ""}
+            {cypher.key ? <InputKey value={key} onInputChange={setKey} /> : ""}
           </div>
         </div>
         <div className="separator" />

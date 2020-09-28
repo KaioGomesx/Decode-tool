@@ -3,11 +3,11 @@ import React from "react";
 import "./styles.css";
 
 function InputKey({
-  key,
-  setKey,
+  value: key,
+  onInputChange,
 }: {
-  key: string;
-  setKey: (text: string) => void;
+  value: string;
+  onInputChange: (text: string) => void;
 }) {
   return (
     <div className="inputDiv">
@@ -17,8 +17,9 @@ function InputKey({
         </span>
       </div>
       <input
+        type="text"
         value={key}
-        onChange={({ target }) => setKey(target.value)}
+        onChange={({ target }) => onInputChange(target.value)}
         placeholder="Coloque a chave"
       />
     </div>
