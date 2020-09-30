@@ -8,6 +8,7 @@ import "./styles.css";
 import text2binary from "../../decoders/binary";
 import reverseString from "../../decoders/reverse";
 import vigenere2text from "../../decoders/vigenere";
+import atbash2text from "../../decoders/atbash";
 
 type Cypher = {
   name: string;
@@ -36,6 +37,8 @@ function getCypherResult(cypher: Cypher, text: string, key?: string) {
       return reverseString(text);
     case "Vigenere":
       return vigenere2text(text, key || "");
+    case "Atbash":
+      return atbash2text(text);
     default:
       return "";
   }
