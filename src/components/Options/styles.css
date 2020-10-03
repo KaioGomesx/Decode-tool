@@ -1,19 +1,5 @@
-a {
-  text-decoration: none;
-  color: white;
-  font-size: 15px;
-  font-family: "Roboto Mono", monospace;
-  margin: 2%;
-  border: 4px red;
-  word-break: keep-all;
-}
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
 
-a:hover {
-  text-decoration: underline;
-}
-
-.options {
-  width: 100%;
-  text-align: right;
-  padding-right: 3%;
+.options .option {
+  font-family: "exo 2", sans-serif;
 }

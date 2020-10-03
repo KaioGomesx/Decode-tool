@@ -7,7 +7,7 @@ import Rot from "./pages/rot";
 import Regex from "./pages/regex";
 import About from "./pages/about";
 
-import "./globalStyle.css";
+import "./styles/main.css";
 
 function App() {
   return (

@@ -7,7 +7,7 @@ import "./styles.css";
 
 function Header() {
   return (
-    <header>
+    <header className="flex flex-row justify-between">
       <a href="/" className="title">
         Decode
       </a>
