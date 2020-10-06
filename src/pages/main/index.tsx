@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import InputKey from "../../components/InputKey";
 import SelectCypher from "../../components/SelectCypher";
 import InputBox from "../../components/InputBox";
+import ResultBox from "../../components/ResultBox";
 
 import text2binary from "../../decoders/binary";
 import reverseString from "../../decoders/reverse";
@@ -69,12 +70,7 @@ function Main() {
       <div className="flex flex-col h-body">
         <div className="flex flex-col sm:flex-row">
           <InputBox onChange={setInputValue} />
-          <div className="flex flex-col container w-10/12 sm:w-2/5 h-container mx-auto overflow-hidden rounded">
-            <div className="text-left font-semibold pl-3 bg-title text-white">
-              {cypher.name}
-            </div>
-            <div className="bg-body w-full h-full">{encodeResult}</div>
-          </div>
+          <ResultBox title={cypher.name} body={encodeResult} />
         </div>
         <div className="flex flex-row ml-6 sm:ml-16">
           <SelectCypher
