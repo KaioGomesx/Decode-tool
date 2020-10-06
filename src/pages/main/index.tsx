@@ -61,7 +61,7 @@ function getCypherResult(cypher: Cypher, text: string, key?: string) {
 
 function onChange(text: string, setCypher: (cypher: Cypher) => void) {
   setCypher(
-    cyphers.find((item) => item.name === text) || {
+    cyphers.find((item) => item.name === text) ?? {
       name: "",
       key: false,
     }
