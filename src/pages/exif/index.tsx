@@ -4,8 +4,6 @@ import Header from "../../components/Header";
 
 import getExif from "../../services/getApiExif";
 
-import "./styles.css";
-
 function Exif() {
   const [imageUrl, setImageUrl] = useState("");
   const [exifData, setExifData] = useState("");

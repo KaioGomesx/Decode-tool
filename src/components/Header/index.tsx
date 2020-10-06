@@ -3,8 +3,6 @@ import React from "react";
 
 import Options from "../Options";
 
-import "./styles.css";
-
 function Header() {
   return (
     <header className="flex flex-1 w-full flex-column items-center justify-center sm:pl-4 sm:justify-between mb-6 sm:mb-20">

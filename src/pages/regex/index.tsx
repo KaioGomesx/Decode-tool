@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import Header from "../../components/Header";
 
-import "./styles.css";
-
 function Regex() {
   const [inputValue, setInputValue] = useState("");
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
