@@ -1,50 +1,22 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import "./styles.css";
-
-const linkStyle = "text-lg text-white option p-3";
+import Option from "../../components/Option";
 
 function Options() {
   let { pathname } = useLocation();
 
   return (
-    <nav className="options mr-8">
+    <nav className="options sm:mr-8">
       {pathname === "/decoders" ? (
         ""
       ) : (
-        <a className={linkStyle} href="decoders">
-          DECODERS
-        </a>
+        <Option text="DECODERS" href="decoders" />
       )}
-      {pathname === "/exif" ? (
-        ""
-      ) : (
-        <a className={linkStyle} href="exif">
-          EXIF
-        </a>
-      )}
-      {pathname === "/rot-n" ? (
-        ""
-      ) : (
-        <a className={linkStyle} href="rot-n">
-          ROT N
-        </a>
-      )}
-      {pathname === "/regex" ? (
-        ""
-      ) : (
-        <a className={linkStyle} href="regex">
-          REGEX
-        </a>
-      )}
-      {pathname === "/about" ? (
-        ""
-      ) : (
-        <a className={linkStyle} href="about">
-          ABOUT
-        </a>
-      )}
+      {pathname === "/exif" ? "" : <Option text="EXIF" href="exif" />}
+      {pathname === "/rot-n" ? "" : <Option text="ROT N" href="rot-n" />}
+      {pathname === "/regex" ? "" : <Option text="REGEX" href="regex" />}
+      {pathname === "/about" ? "" : <Option text="ABOUT" href="about" />}
     </nav>
   );
 }

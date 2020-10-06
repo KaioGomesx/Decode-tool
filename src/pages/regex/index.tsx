@@ -6,6 +6,7 @@ import "./styles.css";
 
 function Regex() {
   const [inputValue, setInputValue] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [regex, setRegex] = useState("");
 
   return (

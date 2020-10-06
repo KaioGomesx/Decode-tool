@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Header from "../../components/Header";
 import InputKey from "../../components/InputKey";
-
-import "./styles.css";
+import SelectCypher from "../../components/SelectCypher";
 
 import text2binary from "../../decoders/binary";
 import reverseString from "../../decoders/reverse";
@@ -44,6 +43,15 @@ function getCypherResult(cypher: Cypher, text: string, key?: string) {
   }
 }
 
+function onChange(text: string, setCypher: (cypher: Cypher) => void) {
+  setCypher(
+    cyphers.find((item) => item.name === text) || {
+      name: "",
+      key: false,
+    }
+  );
+}
+
 function Main() {
   const [cypher, setCypher] = useState<Cypher>(cyphers[0]);
   const [key, setKey] = useState("");
@@ -51,61 +59,49 @@ function Main() {
   const [inputValue, setInputValue] = useState("");
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => setEncodeResult(getCypherResult(cypher, inputValue, key)), [
+  useEffect(() => {
+    setEncodeResult(getCypherResult(cypher, inputValue, key))
+  }, [
     inputValue,
     cypher,
     key,
+    encodeResult
   ]);
 
   return (
     <div className="App">
       <Header />
-      <div className="container">
-        <div className="box1">
-          <div className="boxTitle">Text</div>
-          <textarea
-            placeholder="Digite o texto aqui"
-            cols={70}
-            rows={18}
-            onChange={({ target }) => {
-              setInputValue(target.value);
-              setEncodeResult(getCypherResult(cypher, target.value));
-            }}
-            value={inputValue}
-          />
-          <div className="dropdown">
-            <select
-              className="select"
-              name="Cyphers"
-              value={cypher.name}
+      <div className="flex h-body">
+        <div className="flex-col w-2/5 mx-auto">
+          <div className="flex-col container h-container overflow-hidden rounded">
+            <div className="text-left font-medium pl-3 bg-title text-white">
+              Text
+            </div>
+            <textarea
+              className="bg-body placeholder-gray-placeholder w-full resize-none h-full outline-none overflow-hidden"
+              placeholder="Digite o texto aqui"
+              value={inputValue}
               onChange={({ target }) => {
-                setCypher(
-                  cyphers.find((item) => item.name === target.value) || {
-                    name: "",
-                    key: false,
-                  }
-                );
+                setInputValue(target.value);
               }}
-            >
-              {cyphers.map((item) => (
-                <option value={item.name} key={item.name}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-            {cypher.key ? <InputKey value={key} onInputChange={setKey} /> : ""}
+            />
+          </div>
+          <div className="flex flex-col sm:flex-row">
+            <SelectCypher
+              cyphers={cyphers}
+              cypher={cypher}
+              onChange={(text) => onChange(text, setCypher)}
+            />
+            {cypher.key ? (
+              <InputKey value={key} onInputChange={setKey} />
+            ) : ''}
           </div>
         </div>
-        <div className="separator" />
-        <div className="box2">
-          <div className="boxTitle">{cypher.name}</div>
-          <textarea
-            className="encodeResult"
-            cols={70}
-            rows={18}
-            disabled
-            value={encodeResult}
-          />
+        <div className="flex flex-col container w-2/5 h-container mx-auto overflow-hidden rounded">
+          <div className="text-left font-medium pl-3 bg-title text-white">
+            {cypher.name}
+          </div>
+          <div className="bg-body w-full h-full">{encodeResult}</div>
         </div>
       </div>
     </div>

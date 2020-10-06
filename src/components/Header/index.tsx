@@ -7,9 +7,12 @@ import "./styles.css";
 
 function Header() {
   return (
-    <header className="flex flex-row justify-between">
-      <a href="/" className="title">
-        Decode
+    <header className="flex flex-1 w-full flex-column items-center justify-center sm:justify-between mb-20">
+      <a
+        href="/"
+        className="title text-base text-white hidden sm:block font-medium"
+      >
+        DECODE
       </a>
       <Options />
     </header>

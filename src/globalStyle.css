@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
 
-html, body {
-  margin: 0px;
-  padding: 0px;
-  background-color: #484848;
+body {
+  background-color: #363434;
+  font-family: "exo 2", sans-serif;
 }

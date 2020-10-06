@@ -18,6 +18,11 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
+      
+      title: "#3B3B3B",
+      body: "#A7A7A7",
+      select: "#3C3B3B",
+      key: "#2e2c2c",
 
       black: "#000",
       white: "#fff",
@@ -32,6 +37,7 @@ module.exports = {
         700: "#4a5568",
         800: "#2d3748",
         900: "#1a202c",
+        placeholder: "#757575"
       },
       red: {
         100: "#fff5f5",
@@ -308,6 +314,8 @@ module.exports = {
       auto: "auto",
       ...theme("spacing"),
       full: "100%",
+      body: '90.5vh',
+      container: '35vh',
       screen: "100vh",
     }),
     inset: {

@@ -20,7 +20,7 @@ function About() {
         <div className="container">
           <p>Thanks for resources and inspirations!</p>
           {strings.map((item) => (
-            <span>{item}</span>
+            <span key={Math.random()}>{item}</span>
           ))}
         </div>
       </div>
