@@ -60,21 +60,16 @@ function Main() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    setEncodeResult(getCypherResult(cypher, inputValue, key))
-  }, [
-    inputValue,
-    cypher,
-    key,
-    encodeResult
-  ]);
+    setEncodeResult(getCypherResult(cypher, inputValue, key));
+  }, [inputValue, cypher, key, encodeResult]);
 
   return (
     <div className="App">
       <Header />
-      <div className="flex h-body">
-        <div className="flex-col w-2/5 mx-auto">
-          <div className="flex-col container h-container overflow-hidden rounded">
-            <div className="text-left font-medium pl-3 bg-title text-white">
+      <div className="flex flex-col h-body">
+        <div className="flex flex-col sm:flex-row">
+          <div className="flex-col w-10/12 sm:w-2/5 mx-auto container h-container overflow-hidden rounded mb-8">
+            <div className="text-left font-semibold pl-3 bg-title text-white">
               Text
             </div>
             <textarea
@@ -86,22 +81,20 @@ function Main() {
               }}
             />
           </div>
-          <div className="flex flex-col sm:flex-row">
-            <SelectCypher
-              cyphers={cyphers}
-              cypher={cypher}
-              onChange={(text) => onChange(text, setCypher)}
-            />
-            {cypher.key ? (
-              <InputKey value={key} onInputChange={setKey} />
-            ) : ''}
+          <div className="flex flex-col container w-10/12 sm:w-2/5 h-container mx-auto overflow-hidden rounded">
+            <div className="text-left font-semibold pl-3 bg-title text-white">
+              {cypher.name}
+            </div>
+            <div className="bg-body w-full h-full">{encodeResult}</div>
           </div>
         </div>
-        <div className="flex flex-col container w-2/5 h-container mx-auto overflow-hidden rounded">
-          <div className="text-left font-medium pl-3 bg-title text-white">
-            {cypher.name}
-          </div>
-          <div className="bg-body w-full h-full">{encodeResult}</div>
+        <div className="flex flex-row ml-6 sm:ml-16">
+          <SelectCypher
+            cyphers={cyphers}
+            cypher={cypher}
+            onChange={(text) => onChange(text, setCypher)}
+          />
+          {cypher.key ? <InputKey value={key} onInputChange={setKey} /> : ""}
         </div>
       </div>
     </div>
