@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import InputKey from "../../components/InputKey";
 import SelectCypher from "../../components/SelectCypher";
+import InputBox from "../../components/InputBox";
 
 import text2binary from "../../decoders/binary";
 import reverseString from "../../decoders/reverse";
@@ -68,19 +69,7 @@ function Main() {
       <Header />
       <div className="flex flex-col h-body">
         <div className="flex flex-col sm:flex-row">
-          <div className="flex-col w-10/12 sm:w-2/5 mx-auto container h-container overflow-hidden rounded mb-8">
-            <div className="text-left font-semibold pl-3 bg-title text-white">
-              Text
-            </div>
-            <textarea
-              className="bg-body placeholder-gray-placeholder w-full resize-none h-full outline-none overflow-hidden"
-              placeholder="Digite o texto aqui"
-              value={inputValue}
-              onChange={({ target }) => {
-                setInputValue(target.value);
-              }}
-            />
-          </div>
+          <InputBox onChange={setInputValue}/>
           <div className="flex flex-col container w-10/12 sm:w-2/5 h-container mx-auto overflow-hidden rounded">
             <div className="text-left font-semibold pl-3 bg-title text-white">
               {cypher.name}
