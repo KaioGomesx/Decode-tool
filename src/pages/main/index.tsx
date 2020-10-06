@@ -16,29 +16,43 @@ type Cypher = {
   key: boolean;
 };
 
+enum Cyphers {
+  Binary="Binary",
+  Reverse="Reverse",
+  Vigenere="Vigenere",
+  AtBash="Atbash",
+  Octal="Octal",
+  Hex="Hex",
+  Decimal="Decimal",
+  Base64="Base64",
+  Morse="Morse",
+  Beaufort="Beaufort Cipher",
+  RailFence="Rail Fence Cipher",
+};
+
 const cyphers = [
-  { name: "Binary", key: false },
-  { name: "Reverse", key: false },
-  { name: "Vigenere", key: true },
-  { name: "Atbash", key: false },
-  { name: "Octal", key: false },
-  { name: "Hex", key: false },
-  { name: "Decimal", key: false },
-  { name: "Base64", key: false },
-  { name: "Morse", key: false },
-  { name: "Beaufort Cipher", key: true },
-  { name: "Rail Fence Cipher", key: true },
+  { name: Cyphers.Binary, key: false },
+  { name: Cyphers.Reverse, key: false },
+  { name: Cyphers.Vigenere, key: true },
+  { name: Cyphers.AtBash, key: false },
+  { name: Cyphers.Octal, key: false },
+  { name: Cyphers.Hex, key: false },
+  { name: Cyphers.Decimal, key: false },
+  { name: Cyphers.Base64, key: false },
+  { name: Cyphers.Morse, key: false },
+  { name: Cyphers.Beaufort, key: true },
+  { name: Cyphers.RailFence, key: true },
 ];
 
 function getCypherResult(cypher: Cypher, text: string, key?: string) {
   switch (cypher.name) {
-    case "Binary":
+    case Cyphers.Binary:
       return text2binary(text);
-    case "Reverse":
+    case Cyphers.Reverse:
       return reverseString(text);
-    case "Vigenere":
+    case Cyphers.Vigenere:
       return vigenere2text(text, key || "");
-    case "Atbash":
+    case Cyphers.AtBash:
       return atbash2text(text);
     default:
       return "";
