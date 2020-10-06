@@ -59,7 +59,6 @@ function Main() {
   const [encodeResult, setEncodeResult] = useState("");
   const [inputValue, setInputValue] = useState("");
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setEncodeResult(getCypherResult(cypher, inputValue, key));
   }, [inputValue, cypher, key, encodeResult]);
@@ -69,7 +68,7 @@ function Main() {
       <Header />
       <div className="flex flex-col h-body">
         <div className="flex flex-col sm:flex-row">
-          <InputBox onChange={setInputValue}/>
+          <InputBox onChange={setInputValue} />
           <div className="flex flex-col container w-10/12 sm:w-2/5 h-container mx-auto overflow-hidden rounded">
             <div className="text-left font-semibold pl-3 bg-title text-white">
               {cypher.name}
