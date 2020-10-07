@@ -1,12 +1,12 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
-const reverseAlphabet = "zyxwvutsrqponmlkjihgfedcba";
+const reverseAlphabet = [...alphabet].reverse().join("");
 
 function atbash2text(text: string) {
   const letters = text.split(" ").map((word) => [...word]);
 
   const atbashed = letters.map((letter) => {
     return letter.map((element) => {
-      const index = [...alphabet].findIndex((item) => item === element);
+      const index = alphabet.indexOf(element);
       return reverseAlphabet[index];
     });
   });
