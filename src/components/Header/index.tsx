@@ -5,7 +5,7 @@ import Options from "../Options";
 
 function Header() {
   return (
-    <header className="flex flex-1 w-full flex-column items-center justify-center sm:pl-4 sm:justify-between mb-6 sm:mb-20 pt-3 sm:pt-6">
+    <header className="flex flex-1 w-full flex-column items-center justify-center sm:pl-4 sm:justify-between mb-6 sm:mb-16 pt-3 sm:pt-6">
       <a
         href="/"
         className="title text-base text-white hidden sm:block font-semibold"

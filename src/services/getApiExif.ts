@@ -9,7 +9,7 @@ async function getExifData(imageUrl: string): Promise<any> {
       }
     );
 
-    return data;
+    return JSON.stringify(data, null, 2);
   } catch (error) {
     console.error(error);
   }

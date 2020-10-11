@@ -21,6 +21,7 @@ module.exports = {
       
       title: "#3B3B3B",
       body: "#A7A7A7",
+      button: "#3F3F3F",
       select: "#3C3B3B",
       key: "#2e2c2c",
 
